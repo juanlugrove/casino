@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         $admin=new User();
         $admin->name="JoseDaniel";
         $admin->email="admin@admin.com";
-        $admin->password="admin";
+        $admin->password="adminadmin";
         $admin->role="admin";
         $admin->save();
         User::factory(25)->create();
