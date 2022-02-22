@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('puntos')->default(2000);
             $table->string('password');
+            $table->string("role")->default("user");
             $table->boolean("bloqueado")->default(true);
             $table->rememberToken();
             $table->timestamps();
