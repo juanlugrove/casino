@@ -20,7 +20,29 @@
 </head>
 
 <body>
-    bienvenute 
+    <table>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Puntos</th>
+            <th>Estado</th>
+        </tr>
+        @foreach ($users as $user)
+        <tr>
+            <td>{{$user->id}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+            <td>{{$user->puntos}}</td>
+            <td>
+                @if ($user->bloqueado==1)
+                    activo
+                   @else
+                   bloqueado 
+                @endif</td>
+        </tr>
+        @endforeach
+    </table>
 
 </body>
 
