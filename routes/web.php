@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard',[JuegoController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard',[JuegoController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/admin',[AdminController::class,'index'])
     ->middleware('auth.admin')
