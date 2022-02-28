@@ -20,8 +20,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 contenedor">
             @foreach ($juegos as $juego)
-            <div class="card bg-white overflow-hidden shadow-sm sm:rounded-lg" style="width: 18rem;">
-                <a href="" style="cursor: not-allowed;">
+            <div class="card bg-white overflow-hidden shadow-sm sm:rounded-lg" style="width: 22rem;">
+                @if ($juego->logo == "proximamente")
+                    <a href="" style="cursor: not-allowed;">
+                        
+                    @else
+                        
+                    <a href="{{$juego->logo}}" style="cursor: pointer;">
+                @endif
                     <img src="img/{{$juego->logo}}.jpg" class="card-img-top" alt="...">
                 </a>
                     <div class="card-body p-2">

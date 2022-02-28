@@ -23,7 +23,7 @@ class JuegoSeeder extends Seeder
         $juego->save();
         $juego2=new Juego();
         $juego2->nombre="Ruleta";
-        $juego2->logo="";
+        $juego2->logo="ruleta";
         $juego2->descripcion="Juego de ruleta en el cuyo cual vamos a fumarnos un tremendo de santa justa";
         $juego2->save();
         $juego3=new Juego();
