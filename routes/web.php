@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JuegoController;
 use App\Http\Controllers\LogController;
 use App\Models\Log;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard',[JuegoController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 Route::get('/admin',[AdminController::class,'index'])
     ->middleware('auth.admin')
@@ -30,5 +29,6 @@ Route::get('/admin',[AdminController::class,'index'])
 
     Route::get('/logs',[LogController::class,'index'])
     ->name('log.index');
+
 
 require __DIR__.'/auth.php';
