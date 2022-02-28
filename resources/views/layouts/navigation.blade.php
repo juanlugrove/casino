@@ -16,6 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('log.index')" :active="request()->routeIs('log.index')">
+                        {{ __('Logs') }}
+                    </x-nav-link>
+                </div>
                 @if (auth()->user()->role == 'admin')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
@@ -23,7 +28,9 @@
                         </x-nav-link>
                     </div>
                 @endif
+
             </div>
+            
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
