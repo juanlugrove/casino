@@ -27,6 +27,10 @@ Route::get('/admin',[AdminController::class,'index'])
     ->middleware('auth.admin')
     ->name('admin.index');
 
+    Route::get('/admin/{id}',[AdminController::class,'admin'])
+    ->middleware('auth.admin')
+    ->name('admin.edit');
+
     Route::get('/logs',[LogController::class,'index'])
     ->name('log.index');
 

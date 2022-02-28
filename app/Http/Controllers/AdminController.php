@@ -12,4 +12,9 @@ class AdminController extends Controller
         $users= User::where('role','=','user')->paginate();
         return view('admin.index',compact('users'));
     }
+
+    public function edit($id){
+        $user= User::where('id','=',$id)->get();
+        return view('admin.edit',compact('user'));
+    }
 }
