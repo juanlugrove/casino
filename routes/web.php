@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LogController;
+use App\Models\Log;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +27,8 @@ Route::get('/dashboard', function () {
 Route::get('/admin',[AdminController::class,'index'])
     ->middleware('auth.admin')
     ->name('admin.index');
+
+    Route::get('/logs',[LogController::class,'index'])
+    ->name('log.index');
 
 require __DIR__.'/auth.php';
