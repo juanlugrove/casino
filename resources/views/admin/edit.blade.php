@@ -17,26 +17,22 @@
                             <th>Puntos</th>
                             <th>Estado</th>
                         </tr>
-                        @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->puntos }}</td>
+                                <td>{{ $usuario[0]->id }}</td>
+                                <td>{{ $usuario[0]->nombre }}</td>
+                                <td>{{  $usuario[0]->email }}</td>
+                                <td>{{  $usuario[0]->puntos }}</td>
                                 <td>
-                                    @if ($user->bloqueado == 1)
+                                    @if ( $usuario[0]->bloqueado == 1)
                                         activo
                                     @else
                                         bloqueado
                                     @endif
                                 </td>
                             </tr>
-                        @endforeach
-                        <tr>
-                            <td colspan="5"></td>
-                        </tr>
-                        <td class="color-white" colspan="5">{{ $users->links() }}</td>
+
                     </table>
+
                 </div>
             </div>
         </div>

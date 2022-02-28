@@ -14,7 +14,7 @@ class AdminController extends Controller
     }
 
     public function edit($id){
-        $user= User::where('id','=',$id)->get();
-        return view('admin.edit',compact('user'));
+        $usuario= User::where('id','=',$id)->get();
+        return view('admin.edit',compact('usuario'));
     }
 }
