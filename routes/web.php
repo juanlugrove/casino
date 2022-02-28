@@ -21,18 +21,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard',[JuegoController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard',[JuegoController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/admin',[AdminController::class,'index'])
     ->middleware('auth.admin')
     ->name('admin.index');
 
+<<<<<<< HEAD
     Route::get('/admin/{id}',[AdminController::class,'admin'])
     ->middleware('auth.admin')
     ->name('admin.edit');
+=======
+>>>>>>> 64d31aaee6245fb74c067c79b58d21dbe27b3f6c
 
     Route::get('/logs',[LogController::class,'index'])
     ->name('log.index');
 
+    
 
 require __DIR__.'/auth.php';
