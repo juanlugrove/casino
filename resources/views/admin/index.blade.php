@@ -1,54 +1,46 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Casino') }}
+        </h2>
+    </x-slot>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <table class="table table-dark table-striped text-center">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Puntos</th>
+                            <th>Estado</th>
+                        </tr>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->puntos }}</td>
+                                <td>
+                                    @if ($user->bloqueado == 1)
+                                        activo
+                                    @else
+                                        bloqueado
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                        <td class="color-white" colspan="5">{{ $users->links() }}</td>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</x-app-layout>
 
-    <title>Casino</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
-
-    <!-- Styles -->
-    <style>
-    </style>
-</head>
-
-<body>
-    <table class="table table-dark table-striped">
-        <tr>
-            <th>Codigo</th>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Puntos</th>
-            <th>Estado</th>
-        </tr>
-        @foreach ($users as $user)
-            <tr>
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->puntos }}</td>
-                <td>
-                    @if ($user->bloqueado == 1)
-                        activo
-                    @else
-                        bloqueado
-                    @endif
-                </td>
-            </tr>
-        @endforeach
-        <tr>
-            <td colspan="5"></td>
-        </tr>
-        <td class="color-white" colspan="5">{{ $users->links() }}</td>
-    </table>
-
-
-</body>
-
-</html>
