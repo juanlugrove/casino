@@ -16,7 +16,6 @@
                             <th>Email</th>
                             <th>Puntos</th>
                             <th>Estado</th>
-                            <th></th>
                         </tr>
                         @foreach ($users as $user)
                             <tr>
@@ -31,7 +30,6 @@
                                         bloqueado
                                     @endif
                                 </td>
-                                <td><a href="admin/{{$user->id}}">Editar</a></td>
                             </tr>
                         @endforeach
                         <tr>
@@ -45,4 +43,3 @@
     </div>
     
 </x-app-layout>
-
