@@ -16,7 +16,30 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: rgb(44, 43, 43)
+            background-image: url('img/background.jpg');
+            background-image: linear-gradient(to bottom, rgba(0, 51, 7, 0.897),rgba(0, 51, 7, 0.897)), url('img/background.jpg');
+            background-position: center;
+            background-size: cover
+            /* background-color: rgb(0, 43, 4); */
+        }
+
+        .logo{
+            width: 20%;
+            margin-top: 10%;
+            filter: drop-shadow(-2px 2px 15px rgba(0, 0, 0, 0.7));
+        }
+
+        .botones{
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: space-around;
+            margin: 0 auto;
+            width: 50%;
+        }
+        .botones a{
+            margin-top: 25px;
+            box-shadow: -2px 2px 15px black;
         }
 
     </style>
@@ -26,19 +49,18 @@
     <div class="container-xl">
         <div class="row mt-3">
             <div class="col">
-                <img src="img/logo.png" class="mx-auto d-block" style="width: 400px">
+                <img src="img/logo.png" class="mx-auto d-block logo">
             </div>
         </div>
         @if (Route::has('login'))
-            <div class="col text-center">
+            <div class="col text-center botones">
                 @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                    <script>window.location = "dashboard";</script>
                 @else
                     <a href="{{ route('login') }}" class="btn btn-warning btn-lg">Iniciar Sesion</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="btn btn-warning btn-lg">Registrarse</a>
+                        <a href="{{ route('register') }}" class="btn btn-warning btn-lg reg">Registrarse</a>
                     @endif
                 @endauth
             </div>
