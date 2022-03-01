@@ -45,9 +45,9 @@
                                 <td>{{ $user->puntos }}</td>
                                 <td>
                                     @if ($user->bloqueado == 1)
-                                        activo
+                                        <span style="color: blue">Activo</span>
                                     @else
-                                        bloqueado
+                                        <span style="color: red">Bloqueado</span>
                                     @endif
                                 </td>
                                 <th><a href="usuario{{$user->id}}">Editar</a></th>

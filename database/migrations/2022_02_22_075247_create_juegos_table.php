@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('juegos', function (Blueprint $table) {
             $table->increments("juego_id");
             $table->string("nombre");
-            $table->integer("balance")->default(0);
             $table->string("logo");
             $table->string("descripcion");
             $table->timestamps();

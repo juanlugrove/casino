@@ -73,18 +73,22 @@
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Puntos</th>
+                            <th>Bloqueado</th>
                         </tr>
                             <tr>
-                                <form action="#">
+                            <form action="{{route("admin.update", $usuario[0]->id )}}" method="POST">
+                                    @csrf
+                                    @method("put")
                                     <td>{{ $usuario[0]->id }}</td>
-                                    <td><input type="text" value="{{ $usuario[0]->name }}"></td>
-                                    <td><input type="text" value="{{ $usuario[0]->email }}"></td>
-                                    <td><input type="number" value="{{ $usuario[0]->puntos }}"></td>
+                                    <input type="text" name="id" value="{{ $usuario[0]->id }}" style="display:none;">
+                                    <td><input type="text" name="name" value="{{ $usuario[0]->name }}"></td>
+                                    <td><input type="text" name="email" value="{{ $usuario[0]->email }}"></td>
+                                    <td><input type="number" name="puntos" value="{{ $usuario[0]->puntos }}"></td>
                                     <th>
                                         @if ($usuario[0]->bloqueado == 1)
-                                        <button class="boton bloquear">Bloquear</button>
+                                        <input type="checkbox" name="bloqueado">
                                         @else
-                                        <button class="boton activar">Activar</button>
+                                        <input type="checkbox" name="bloqueado" checked>
                                         @endif
                                     </th>
                                 </tr>
