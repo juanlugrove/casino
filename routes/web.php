@@ -37,7 +37,12 @@ Route::get('/logs',[LogController::class,'index'])->middleware(['auth'])
     Route::put('/usuario{usuario}/update',[AdminController::class,'update'])
     ->middleware('auth.admin')
     ->name('admin.update');
+
 Route::get("/dados",[JuegoController::class,'dados'])->middleware(['auth'])->name("juego.dados");
 Route::put("/dados",[JuegoController::class,'dadoConfirmar'])->middleware(['auth'])->name("juego.dados.confirmar");
+
+Route::get("/minas",[JuegoController::class,'minas'])->middleware(['auth'])->name("juego.minas");
+Route::put("/minas",[JuegoController::class,'minasConfirmar'])->middleware(['auth'])->name("juego.minas.confirmar");
+
 
 require __DIR__.'/auth.php';
