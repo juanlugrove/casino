@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index(){
 
-        $users= User::where('role','=','user')->paginate();
+        $users= User::where('role','=','user')->simplepaginate();
         return view('admin.index',compact('users'));
     }
 

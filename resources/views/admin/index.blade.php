@@ -50,7 +50,7 @@
                                         bloqueado
                                     @endif
                                 </td>
-                                <th><a href="admin/usuario{{$user->id}}">Editar</a></th>
+                                <th><a href="usuario{{$user->id}}">Editar</a></th>
                             </tr>
                         @endforeach
                         <td class="ultimo" colspan="6">{{ $users->links() }}</td>

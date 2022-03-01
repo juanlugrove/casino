@@ -27,7 +27,7 @@ Route::get('/admin',[AdminController::class,'index'])
     ->middleware('auth.admin')
     ->name('admin.index');
 
-    Route::get('/admin/usuario{id}',[AdminController::class,'edit'])
+    Route::get('/usuario{id}',[AdminController::class,'edit'])
     ->middleware('auth.admin')
     ->name('admin.edit');
 
