@@ -31,7 +31,16 @@
                         @foreach ($logs as $log)
                             <tr>
                                 <td>{{ $log->log_id }}</td>
-                                <td>{{ $log->juego_id }}</td>
+                                <td>
+                                    @switch($log->juego_id)
+                                    @case(1)
+                                    Dados
+                                    @break
+                                    @case(2)
+                                    Ruleta
+                                    @break
+                                    @endswitch
+                                </td>
                                 <td>{{ $log->puntos }}</td>
                                 <td>{{ $log->created_at }}</td>
                             </tr>

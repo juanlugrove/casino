@@ -5,11 +5,30 @@
         </h2>
     </x-slot>
 
+
+    <style>
+        .tabla{
+            margin: 0px auto;
+            text-align: center
+        }
+        .tabla th{
+            width: 2000px;
+        }
+        tr:nth-child(even){
+            background-color: rgb(226, 226, 226);
+        }
+        th a:hover{
+            color: red;
+        }
+        .ultimo{
+            background-color: white;
+        }
+    </style>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <table class="table table-dark table-striped text-center">
+                    <table class="table-auto tabla">
                         <tr>
                             <th>Codigo</th>
                             <th>Nombre</th>
@@ -31,13 +50,10 @@
                                         bloqueado
                                     @endif
                                 </td>
-                                <td><a href="admin/{{$user->id}}">Editar</a></td>
+                                <th><a href="admin/usuario{{$user->id}}">Editar</a></th>
                             </tr>
                         @endforeach
-                        <tr>
-                            <td colspan="5"></td>
-                        </tr>
-                        <td class="color-white" colspan="5">{{ $users->links() }}</td>
+                        <td class="ultimo" colspan="6">{{ $users->links() }}</td>
                     </table>
                 </div>
             </div>
