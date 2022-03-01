@@ -27,13 +27,16 @@ Route::get('/admin',[AdminController::class,'index'])
     ->middleware('auth.admin')
     ->name('admin.index');
 
-    Route::get('/usuario{id}',[AdminController::class,'edit'])
+Route::get('/usuario{id}',[AdminController::class,'show'])
     ->middleware('auth.admin')
     ->name('admin.edit');
 
-    Route::get('/logs',[LogController::class,'index'])
+Route::get('/logs',[LogController::class,'index'])
     ->name('log.index');
 
+    Route::put('/usuario{usuario}/update',[AdminController::class,'update'])
+    ->middleware('auth.admin')
+    ->name('admin.update');
     
 
 require __DIR__.'/auth.php';

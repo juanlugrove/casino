@@ -13,8 +13,22 @@ class AdminController extends Controller
         return view('admin.index',compact('users'));
     }
 
-    public function edit($id){
+    public function show($id){
         $usuario= User::where('id','=',$id)->get();
         return view('admin.edit',compact('usuario'));
+    }
+
+    public function update(Request $request ,User $usuario){
+        // $usuario=User::find($id);
+        $usuario->name=$request->name;
+        $usuario->email=$request->email;
+        $usuario->puntos=$request->puntos;
+        if(isset($request->bloqueado)){
+            $usuario->bloqueado=0;
+        } else {
+            $usuario->bloqueado=1;
+        }
+        $usuario->save();
+        return redirect()->route("admin.index");
     }
 }
