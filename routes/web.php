@@ -38,5 +38,6 @@ Route::get('/logs',[LogController::class,'index'])->middleware(['auth'])
     ->middleware('auth.admin')
     ->name('admin.update');
 Route::get("/dados",[JuegoController::class,'dados'])->middleware(['auth'])->name("juego.dados");
+Route::put("/dados",[JuegoController::class,'dadoConfirmar'])->middleware(['auth'])->name("juego.dados.confirmar");
 
 require __DIR__.'/auth.php';
