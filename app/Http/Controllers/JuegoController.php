@@ -26,7 +26,7 @@ class JuegoController extends Controller
         $jugada->user_id=auth()->id();
         $jugada->juego_id=1;
         if($numGanador==$request->numero){
-            $jugada->puntos=($request->apuesta)*2;
+            $jugada->puntos=($request->apuesta)*3;
         } else{
             $jugada->puntos=($request->apuesta)*-1;
         }

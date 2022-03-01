@@ -30,13 +30,13 @@
         }
         .apuestaClass{
             border-radius: 5px;
-            margin-top: 35px;
+            margin-top: 25px;
             text-align: center;
         }
         .confirmar{
             display: block;
             margin: 0 auto;
-            margin-top: 25px;
+            margin-top: 20px;
             background-color: rgb(172, 172, 1);
             color: white;
             padding: 5px 25px;
@@ -83,7 +83,8 @@
                                 @csrf
                                 @method("put")
                                 Cantidad a apostar:
-                                <input type="number" name="apuesta" class="apuestaClass"> €<br><br>
+                                <input type="number" name="apuesta" class="apuestaClass"> €<br>
+                                <span style="font-size:0.7rem">En caso de ganar, ganaras el triple</span><br><br>
                                 Seleccione un numero:
                                 <select name="numero">
                                     <option value="1">1</option>
