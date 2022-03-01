@@ -53,10 +53,14 @@
             <div class="flex justify-between h-16">
 
                 <div class="mensaje">
+                    @if(auth()->user()->bloqueado==0)
+                    <p>Bloqueado</p>
+                    @else
                     @if (auth()->user()->role == 'admin')
                         <p>ADMIN</p>
                         @else
                         <p>{{Auth::user()->puntos}} €</p>
+                    @endif
                     @endif
 
                 </div>

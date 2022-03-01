@@ -77,7 +77,8 @@
                         <div class="control">
                             <h1>TIRA EL DADO</h1>
                             @if(!isset($jugada))
-               
+                                @if (Auth::user()->bloqueado==1)
+                                    
                             <span>Actualmente tienes {{Auth::user()->puntos}} €</span>
                             <form action="" method="POST">
                                 @csrf
@@ -98,6 +99,10 @@
                             </form>
                             
                             <span style="font-size:0.7rem">*No se lanzará el dado hasta que no confirmes tu apuesta</span>
+                            @else
+                            <h1 style="font-size: 2rem; font-weight: bold">Lo siento, usuario bloqueado</h1>
+                            <span style="font-size: 1.5rem">Contacta con algun administrador</span>
+                            @endif
                             @else
                             <button id="throw" class="botonC">LANZAR</button>
                             <div id="oculto" style="display:none;">

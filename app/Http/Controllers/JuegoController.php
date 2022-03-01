@@ -34,6 +34,9 @@ class JuegoController extends Controller
         
         $jugador=User::find(auth()->id());
         $jugador->puntos=$jugador->puntos+$jugada->puntos;
+        if($jugador->puntos<=0){
+            $jugador->bloqueado=0;
+        }
         $jugador->save();
         return view('juego.dados', compact("jugada","numGanador"));
     }
