@@ -12,4 +12,9 @@ class JuegoController extends Controller
         $juegos= Juego::get();
         return view('dashboard',compact('juegos'));
     }
+
+    public function dados(){
+        return view('juego.dados');
+        // return "hola";
+    }
 }

@@ -31,12 +31,12 @@ Route::get('/usuario{id}',[AdminController::class,'show'])
     ->middleware('auth.admin')
     ->name('admin.edit');
 
-Route::get('/logs',[LogController::class,'index'])
+Route::get('/logs',[LogController::class,'index'])->middleware(['auth'])
     ->name('log.index');
 
     Route::put('/usuario{usuario}/update',[AdminController::class,'update'])
     ->middleware('auth.admin')
     ->name('admin.update');
-    
+Route::get("/dados",[JuegoController::class,'dados'])->middleware(['auth'])->name("juego.dados");
 
 require __DIR__.'/auth.php';
