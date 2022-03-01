@@ -16,7 +16,7 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: rgb(44, 43, 43)
+            background-color: rgb(0, 43, 4);
         }
 
     </style>
@@ -32,8 +32,7 @@
         @if (Route::has('login'))
             <div class="col text-center">
                 @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                    <script>window.location = "dashboard";</script>
                 @else
                     <a href="{{ route('login') }}" class="btn btn-warning btn-lg">Iniciar Sesion</a>
 
