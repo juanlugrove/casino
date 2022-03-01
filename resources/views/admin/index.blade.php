@@ -31,7 +31,7 @@
                                         bloqueado
                                     @endif
                                 </td>
-                                <td><a href="admin/{{$user->id}}">Editar</a></td>
+                                <td><a href="admin/usuario{{$user->id}}">Editar</a></td>
                             </tr>
                         @endforeach
                         <tr>
