@@ -29,14 +29,19 @@ class JuegoController extends Controller
         $jugada=new Log();
         $jugada->user_id=auth()->id();
         $jugada->juego_id=1;
+        $jugador=User::find(auth()->id());
+        if($request->apuesta>$jugador->puntos){
+            $apuesta=$jugador->puntos;
+        }else{
+            $apuesta=$request->apuesta;
+        }
         if($numGanador==$request->numero){
-            $jugada->puntos=($request->apuesta)*3;
+            $jugada->puntos=$apuesta*3;
         } else{
-            $jugada->puntos=($request->apuesta)*-1;
+            $jugada->puntos=$apuesta*-1;
         }
         $jugada->save();
         
-        $jugador=User::find(auth()->id());
         $jugador->puntos=$jugador->puntos+$jugada->puntos;
         if($jugador->puntos<=0){
             if($jugador->role=="admin"){
