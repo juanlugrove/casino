@@ -10,7 +10,7 @@ class LogController extends Controller
 {
     
     public function index(){
-        $logs= ModelsLog::where('user_id','=',auth()->id())->paginate();
+        $logs= ModelsLog::where('user_id','=',auth()->id())->orderBy('created_at', 'DESC')->simplepaginate();
         return view('log.index',compact('logs'));
     }
 }
