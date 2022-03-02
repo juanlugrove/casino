@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,12 @@ class AdminController extends Controller
             $usuario->bloqueado=1;
         }
         $usuario->save();
+        return redirect()->route("admin.index");
+    }
+    
+    public function destroy(User $usuario){
+        $logs=Log::where("user_id","=",$usuario->id)->delete();
+        $usuario->delete();
         return redirect()->route("admin.index");
     }
 }

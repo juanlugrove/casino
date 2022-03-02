@@ -62,6 +62,16 @@
         .confirmar:active{
             background-color: rgb(238, 238, 0);
         }
+        .borrar:hover{
+            background-color: red;
+        }
+        .borrar:active{
+            background-color: rgb(173, 2, 2);
+        }
+
+        .borrar{
+            background-color: rgb(139, 0, 0);
+        }
     </style>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -94,7 +104,12 @@
                                 </tr>
                     </table>
                     <input type="submit" value="Confirmar cambios" class="confirmar">
-                            </form>
+                </form>
+                <form action="{{route("admin.destroy", $usuario[0]->id )}}" method="POST">
+                    @csrf
+                    @method("delete")
+                    <input type="submit" value="Borrar usuario" class="confirmar borrar">
+                    </form>
                 </div>
             </div>
         </div>

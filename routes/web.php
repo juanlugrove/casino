@@ -34,9 +34,9 @@ Route::get('/usuario{id}',[AdminController::class,'show'])
 Route::get('/logs',[LogController::class,'index'])->middleware(['auth'])
     ->name('log.index');
 
-    Route::put('/usuario{usuario}/update',[AdminController::class,'update'])
-    ->middleware('auth.admin')
-    ->name('admin.update');
+Route::put('/usuario{usuario}/update',[AdminController::class,'update'])->middleware('auth.admin')->name('admin.update');
+
+Route::delete('/usuario{usuario}',[AdminController::class,'destroy'])->middleware('auth.admin')->name('admin.destroy');
 
 Route::get("/dados",[JuegoController::class,'dados'])->middleware(['auth'])->name("juego.dados");
 Route::put("/dados",[JuegoController::class,'dadoConfirmar'])->middleware(['auth'])->name("juego.dados.confirmar");
